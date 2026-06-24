@@ -18,6 +18,7 @@ function buildFullCard(p) {
 
   // Full page uses the longer `description` if present, else falls back to blurb.
   const text = p.description || p.blurb;
+  const { isLong, short } = splitDescription(text);
 
   card.innerHTML = `
     ${img}
@@ -25,10 +26,23 @@ function buildFullCard(p) {
       <h3 class="project-card__title">${p.title}</h3>
       <span class="project-card__year">${p.year}</span>
     </div>
-    <p class="project-card__desc">${text}</p>
+    <p class="project-card__desc">${isLong ? short : text}</p>
+    ${isLong ? '<button type="button" class="project-card__readmore">Read more</button>' : ""}
     <div class="project-card__tags">${tags}</div>
     ${link}
   `;
+
+  if (isLong) {
+    const desc = card.querySelector(".project-card__desc");
+    const btn = card.querySelector(".project-card__readmore");
+    let expanded = false;
+    btn.addEventListener("click", () => {
+      expanded = !expanded;
+      desc.textContent = expanded ? text : short;
+      btn.textContent = expanded ? "Read less" : "Read more";
+    });
+  }
+
   return card;
 }
 

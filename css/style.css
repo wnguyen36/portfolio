@@ -213,7 +213,7 @@ body {
 .project-card__img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: fill;
   background: var(--gray-bg);
   margin-bottom: 1.25rem;
   border: 1px solid var(--gray-3);
@@ -255,6 +255,20 @@ body {
   background: var(--gray-bg);
   color: var(--gray-1);
 }
+.project-card__readmore {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--black);
+  background: none;
+  border: none;
+  padding: 0;
+  margin: -0.75rem 0 1.25rem;
+  align-self: flex-start;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.project-card__readmore:hover { opacity: 0.6; }
 .project-card__link {
   font-size: 0.9rem;
   font-weight: 600;

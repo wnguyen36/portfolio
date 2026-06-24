@@ -1,5 +1,16 @@
 // main.js — homepage
 
+// The hero is always visible on load, so reveal it once immediately
+// instead of routing it through the scroll-triggered IntersectionObserver.
+// That observer's rootMargin is viewport-relative, and on mobile the
+// address bar resizes window.innerHeight by ~50-60px while scrolling —
+// which sits right where the hero's bottom edge falls, so its
+// intersection ratio was flickering across the threshold and re-firing
+// the reveal transition on every resize.
+requestAnimationFrame(() => {
+  document.querySelectorAll(".intro [data-reveal]").forEach((el) => el.classList.add("is-revealed"));
+});
+
 // Build a project card from a data object.
 // Shared shape so homepage + projects page look identical.
 function buildCard(p) {
@@ -18,16 +29,31 @@ function buildCard(p) {
     ? `<a class="project-card__link" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel || "View"} →</a>`
     : "";
 
+  const { isLong, short } = splitDescription(p.blurb);
+
   card.innerHTML = `
     ${img}
     <div class="project-card__top">
       <h3 class="project-card__title">${p.title}</h3>
       <span class="project-card__year">${p.year}</span>
     </div>
-    <p class="project-card__desc">${p.blurb}</p>
+    <p class="project-card__desc">${isLong ? short : p.blurb}</p>
+    ${isLong ? '<button type="button" class="project-card__readmore">Read more</button>' : ""}
     <div class="project-card__tags">${tags}</div>
     ${link}
   `;
+
+  if (isLong) {
+    const desc = card.querySelector(".project-card__desc");
+    const btn = card.querySelector(".project-card__readmore");
+    let expanded = false;
+    btn.addEventListener("click", () => {
+      expanded = !expanded;
+      desc.textContent = expanded ? p.blurb : short;
+      btn.textContent = expanded ? "Read less" : "Read more";
+    });
+  }
+
   return card;
 }
 
@@ -54,17 +80,17 @@ if (photo && photo.getAttribute("src")) {
 // Rotate "Hello" through native scripts every few seconds, sliding
 // downward as one word scrolls out and the next scrolls in underneath.
 const GREETINGS = [
-  "Hello",      // English
-  "你好",        // Chinese
-  "こんにちは",    // Japanese
-  "안녕하세요",    // Korean
-  "Xin chào",   // Vietnamese
-  "Ciao",       // Italian
-  "Hola",       // Spanish
-  "Bonjour",    // French
-  "Hallo",      // German
-  "Привет",     // Russian
-  "مرحباً",      // Arabic
+  "Hello!",      // English
+  "你好!",        // Chinese
+  "こんにちは!",    // Japanese
+  "안녕하세요!",    // Korean
+  "Xin chào!",   // Vietnamese
+  "Ciao!",       // Italian
+  "Hola!",       // Spanish
+  "Bonjour!",    // French
+  "Hallo!",      // German
+  "Привет!",     // Russian
+  "مرحباً!",      // Arabic
 ];
 
 const greetingWord = document.getElementById("greetingWord");
