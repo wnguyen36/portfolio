@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Projects — Your Name</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">Your Name</a>
+    <ul class="nav__links">
+      <li><a href="index.html#intro">About</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ALL PROJECTS -->
+  <section class="section projects-page">
+    <div class="section__head" data-reveal>
+      <div>
+        <h1 class="section__title">All Projects</h1>
+        <p class="projects-page__sub">Everything I've built and shipped.</p>
+      </div>
+      <a href="index.html" class="btn">← Back home</a>
+    </div>
+    <div class="projects__grid projects__grid--full" id="projectsAll">
+      <!-- All projects injected here by JS -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>© 2025 Your Name</span>
+  </footer>
+
+  <script src="js/projects-data.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

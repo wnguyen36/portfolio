@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Nguyen — Portfolio</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#intro" class="nav__logo">William Nguyen</a>
+    <ul class="nav__links">
+      <li><a href="#intro">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- INTRODUCTION -->
+  <section class="section intro" id="intro">
+    <div class="intro__box">
+      <div class="intro__photo" data-reveal="left">
+        <!-- Replace src with your photo, e.g. assets/me.jpg -->
+        <img src="" alt="Your photo" id="profilePhoto" />
+        <span class="intro__photo-placeholder">Your<br>Photo</span>
+      </div>
+      <div class="intro__about" data-reveal="right">
+        <h1 class="intro__greeting">
+          <span class="sr-only">Hello,</span>
+          <span class="intro__greeting-word" id="greetingWord" aria-hidden="true">Hello</span>
+        </h1>
+
+        <p class="intro__text">
+          My name is William Nguyen, and I'm currently a sophomore @ Georgia Tech studying Biomedical Engineering. My interests lie at the intersection between technology and medicine, specifically in nanotechnology, computational biology, and surgical robotics.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS (preview) -->
+  <section class="section projects" id="projects">
+    <div class="section__head" data-reveal>
+      <h2 class="section__title">Projects</h2>
+      <a href="projects.html" class="btn">See all projects →</a>
+    </div>
+    <div class="projects__grid" id="projectsPreview">
+      <!-- Top 2 projects injected here by JS -->
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <h2 class="section__title" data-reveal>Get in touch</h2>
+    <p class="contact__sub" data-reveal>
+      The best way to reach me is below. I'm happy to talk about work,
+      collaboration, or anything in between.
+    </p>
+    <ul class="contact__list" id="contactList">
+      <li data-reveal data-reveal-manual>
+        <span class="contact__label">Email</span>
+        <a href="mailto:william.nguyen36@gatech.edu" class="contact__value">william.nguyen36@gatech.edu</a>
+      </li>
+      <li data-reveal data-reveal-manual>
+        <span class="contact__label">LinkedIn</span>
+        <a href="https://linkedin.com/in/wnguyen36" target="_blank" rel="noopener" class="contact__value">linkedin.com/in/wnguyen36</a>
+      </li>
+      <li data-reveal data-reveal-manual>
+        <span class="contact__label">GitHub</span>
+        <a href="https://github.com/wnguyen36" target="_blank" rel="noopener" class="contact__value">github.com/wnguyen36</a>
+      </li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <span>© 2026 William Nguyen</span>
+  </footer>
+
+  <script src="js/projects-data.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
