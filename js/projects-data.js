@@ -11,6 +11,7 @@
 
 const PROJECTS = [
   {
+    slug: "seaad-transcriptomics",
     title: "SEA-AD Single-Cell Transcriptomics Analysis",
     year: "2026",
     blurb: "A scRNA-seq analysis of 240k microglia that quantifies how they shift into disease-associated activation states across Alzheimer's severity and genetic risk",
@@ -23,6 +24,7 @@ const PROJECTS = [
     image: "assets/seaad_analysis_pic.png" 
   },
   {
+    slug: "iv-failure-mode-detection",
     title: "Multisensor IV Failure-Mode Detection & Monitoring System",
     year: "2026",
     blurb: "Developed a low-cost, multi-sensor attachment for gravity-based IV systems that detects and classifies three failure modes",
@@ -35,6 +37,7 @@ const PROJECTS = [
     image: ""
   },
   {
+    slug: "project-three",
     title: "Project Three",
     year: "2026",
     blurb: "A short one-line description of what this project is and why it matters.",
@@ -47,6 +50,7 @@ const PROJECTS = [
     image: ""
   },
   {
+    slug: "project-four",
     title: "Project Four",
     year: "2026",
     blurb: "A short one-line description of what this project is and why it matters.",
@@ -60,12 +64,22 @@ const PROJECTS = [
   }
 ];
 
-// Shared by main.js (blurb) and projects.js (description) so long card
-// text collapses behind a "Read more" toggle instead of stretching the card.
-const DESC_WORD_LIMIT = 25;
+// Wires up a project card so clicking (or pressing Enter/Space) navigates
+// to that project's dedicated page. Clicks on the card's own external
+// link are left alone so they open in their own tab as normal.
+function goToProjectPage(card, p) {
+  const url = `project.html?slug=${encodeURIComponent(p.slug)}`;
 
-function splitDescription(text, limit = DESC_WORD_LIMIT) {
-  const words = text.trim().split(/\s+/);
-  if (words.length <= limit) return { isLong: false, short: text };
-  return { isLong: true, short: words.slice(0, limit).join(" ") + "…" };
+  card.addEventListener("click", (e) => {
+    if (e.target.closest(".project-card__link")) return;
+    window.location.href = url;
+  });
+
+  card.addEventListener("keydown", (e) => {
+    if (e.target.closest(".project-card__link")) return;
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      window.location.href = url;
+    }
+  });
 }

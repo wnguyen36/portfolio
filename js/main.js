@@ -13,11 +13,15 @@ requestAnimationFrame(() => {
 
 // Build a project card from a data object.
 // Shared shape so homepage + projects page look identical.
+// The whole card links through to that project's dedicated page.
 function buildCard(p) {
   const card = document.createElement("article");
   card.className = "project-card";
   card.setAttribute("data-reveal", "");
   card.setAttribute("data-reveal-manual", "");
+  card.setAttribute("role", "link");
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("aria-label", `View project: ${p.title}`);
 
   const img = p.image
     ? `<img class="project-card__img" src="${p.image}" alt="${p.title}" />`
@@ -29,33 +33,18 @@ function buildCard(p) {
     ? `<a class="project-card__link" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel || "View"} →</a>`
     : "";
 
-  const { isLong, short } = splitDescription(p.blurb);
-
   card.innerHTML = `
     ${img}
     <div class="project-card__top">
       <h3 class="project-card__title">${p.title}</h3>
       <span class="project-card__year">${p.year}</span>
     </div>
-    <p class="project-card__desc">${isLong ? short : p.blurb}</p>
-    ${isLong ? '<button type="button" class="project-card__readmore">Read more</button>' : ""}
+    <p class="project-card__desc">${p.blurb}</p>
     <div class="project-card__tags">${tags}</div>
     ${link}
   `;
 
-  if (isLong) {
-    const desc = card.querySelector(".project-card__desc");
-    const btn = card.querySelector(".project-card__readmore");
-    let expanded = false;
-    btn.addEventListener("click", () => {
-      Reveal.flip(card.parentElement, () => {
-        expanded = !expanded;
-        desc.textContent = expanded ? p.blurb : short;
-        btn.textContent = expanded ? "Read less" : "Read more";
-        card.classList.toggle("project-card--expanded", expanded);
-      });
-    });
-  }
+  goToProjectPage(card, p);
 
   return card;
 }

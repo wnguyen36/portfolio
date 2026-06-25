@@ -29,62 +29,7 @@
     });
   }
 
-  // Animates a layout-changing mutation (e.g. a grid item expanding into a
-  // full row) by snapshotting every sibling's rect before/after the change,
-  // then transitioning away the delta — so cards slide/resize smoothly into
-  // their new spots instead of snapping when the grid reflows.
-  function flip(container, mutate) {
-    const items = Array.from(container.children);
-    const before = items.map((el) => el.getBoundingClientRect());
-
-    mutate();
-
-    // Measure every item's post-mutation rect *before* overriding any of
-    // them — overriding one item's size earlier would itself perturb the
-    // grid layout and corrupt the rects measured for the items after it.
-    const deltas = items.map((el, i) => {
-      const from = before[i];
-      const to = el.getBoundingClientRect();
-      return {
-        dx: from.left - to.left,
-        dy: from.top - to.top,
-        w: from.width,
-        h: from.height,
-        changed: from.left !== to.left || from.top !== to.top || from.width !== to.width || from.height !== to.height,
-      };
-    });
-
-    items.forEach((el, i) => {
-      const d = deltas[i];
-      if (!d.changed) return;
-      el.style.transition = "none";
-      el.style.transform = `translate(${d.dx}px, ${d.dy}px)`;
-      el.style.width = `${d.w}px`;
-      el.style.height = `${d.h}px`;
-      el.style.overflow = "hidden";
-    });
-
-    requestAnimationFrame(() => {
-      items.forEach((el, i) => {
-        if (!deltas[i].changed) return;
-        el.style.transition =
-          "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), width 0.45s cubic-bezier(0.16, 1, 0.3, 1), height 0.45s cubic-bezier(0.16, 1, 0.3, 1)";
-        el.style.transform = "";
-        el.style.width = "";
-        el.style.height = "";
-      });
-    });
-
-    setTimeout(() => {
-      items.forEach((el, i) => {
-        if (!deltas[i].changed) return;
-        el.style.transition = "";
-        el.style.overflow = "";
-      });
-    }, 470);
-  }
-
-  window.Reveal = { reveal, staggerChildren, flip };
+  window.Reveal = { reveal, staggerChildren };
 
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-reveal]:not([data-reveal-manual])").forEach(reveal);
