@@ -48,9 +48,12 @@ function buildCard(p) {
     const btn = card.querySelector(".project-card__readmore");
     let expanded = false;
     btn.addEventListener("click", () => {
-      expanded = !expanded;
-      desc.textContent = expanded ? p.blurb : short;
-      btn.textContent = expanded ? "Read less" : "Read more";
+      Reveal.flip(card.parentElement, () => {
+        expanded = !expanded;
+        desc.textContent = expanded ? p.blurb : short;
+        btn.textContent = expanded ? "Read less" : "Read more";
+        card.classList.toggle("project-card--expanded", expanded);
+      });
     });
   }
 

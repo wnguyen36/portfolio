@@ -210,6 +210,9 @@ body {
   border-color: var(--black);
   transform: translateY(-3px);
 }
+.project-card--expanded {
+  grid-column: 1 / -1;
+}
 .project-card__img {
   width: 100%;
   aspect-ratio: 16 / 9;

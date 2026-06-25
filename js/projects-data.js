@@ -13,7 +13,7 @@ const PROJECTS = [
   {
     title: "SEA-AD Single-Cell Transcriptomics Analysis",
     year: "2026",
-    blurb: "A scRNA-seq analysis of 240k microglia that quantifies how the brain's immune cells shift into disease-associated activation states across Alzheimer's severity and genetic risk",
+    blurb: "A scRNA-seq analysis of 240k microglia that quantifies how they shift into disease-associated activation states across Alzheimer's severity and genetic risk",
     description:
       "This project applies a complete single-cell RNA-seq pipeline to 240,651 microglial transcriptomes from 84 post-mortem donors, quantifying how microglia (brain immune cells) shift between homeostatic and disease-associated programs (DAM) across Alzheimer's disease. Using curated DAM and homeostatic gene signatures across 8 annotated cell supertypes, the analysis links DAM activation to dementia status (Spearman ρ = 0.252, p = 0.021), recovering the canonical transition signature with APOE/SPP1 upregulation and P2RY12/CX3CR1 downregulation. A donor-level pseudobulk differential expression analysis on raw UMI counts identified 46 upregulated and 23 downregulated genes." +
       "\n Check out the GitHub repo for the full pipeline, more details, and graphs",
