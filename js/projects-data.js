@@ -32,7 +32,7 @@ const PROJECTS = [
     tags: ["C++", "Arduino", "React"],
     link: "https://github.com/wnguyen36/IIIV",
     linkLabel: "View on GitHub",
-    image: ""
+    image: "assets/iiiv_demo_pic.png"
   },
   {
     slug: "injurfree-basketball",
@@ -42,10 +42,12 @@ const PROJECTS = [
     description:
       "A longer paragraph for the full projects page. Explain the problem you " +
       "solved, what you built, and the outcome.",
-    tags: ["TypeScript", "Next.js"],
-    link: "https://yourproject.com",
-    linkLabel: "Live site",
-    image: ""
+    //tags: ["", ""],//
+    link: "https://github.com/jaydendayal/injurfree",
+    linkLabel: "View on GitHub",
+    link: "https://devpost.com/software/injure-free", 
+    linkLabel: "View our Devpost",
+    image: " "
   },
   {
     slug: "tegaderm-redesign",
@@ -56,8 +58,8 @@ const PROJECTS = [
       "A longer paragraph for the full projects page. Explain the problem you " +
       "solved, what you built, and the outcome.",
     //tags: ["Figma", "Prototyping"],//
-    link: "https://github.com/yourhandle/project-four",
-    linkLabel: "View on GitHub",
+    //link: "",//
+    linkLabel: "View the design report",
     image: ""
   }
 ];

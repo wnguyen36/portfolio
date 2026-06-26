@@ -27,7 +27,7 @@ function buildCard(p) {
     ? `<img class="project-card__img" src="${p.image}" alt="${p.title}" />`
     : "";
 
-  const tags = p.tags.map(t => `<span>${t}</span>`).join("");
+  const tags = (p.tags || []).map(t => `<span>${t}</span>`).join("");
 
   const link = p.link
     ? `<a class="project-card__link" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel || "View"} →</a>`

@@ -25,7 +25,7 @@ if (!project) {
        </div>`
     : "";
 
-  const tags = project.tags.map((t) => `<span>${t}</span>`).join("");
+  const tags = (project.tags || []).map((t) => `<span>${t}</span>`).join("");
 
   const link = project.link
     ? `<a class="project-card__link" href="${project.link}" target="_blank" rel="noopener">${project.linkLabel || "View"} →</a>`
