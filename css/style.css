@@ -218,7 +218,7 @@ body {
 .project-card__img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: fill;
+  object-fit: cover;
   background: var(--gray-bg);
   margin-bottom: 1.25rem;
   border: 1px solid var(--gray-3);
@@ -297,8 +297,7 @@ body {
 .project-page__img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: fill;
+  height: auto;
   background: var(--gray-bg);
 }
 .project-page__body {
