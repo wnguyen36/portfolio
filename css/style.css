@@ -302,7 +302,7 @@ body {
   background: var(--gray-bg);
 }
 .project-page__body {
-  max-width: 70ch;
+  max-width: none;
 }
 .project-page__desc {
   color: var(--gray-1);
