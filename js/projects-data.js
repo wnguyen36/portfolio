@@ -28,18 +28,17 @@ const PROJECTS = [
     year: "2026",
     blurb: "Developed a low-cost, multi-sensor attachment for gravity-based IV systems that detects and classifies three failure modes",
     description:
-      "A longer paragraph for the full projects page. Explain the problem you " +
-      "solved, what you built, and the outcome.",
+      "A longer paragraph for the full projects page. Explain the problem you ",
     tags: ["C++", "Arduino", "React"],
     link: "https://github.com/wnguyen36/IIIV",
     linkLabel: "View on GitHub",
     image: ""
   },
   {
-    slug: "project-three",
-    title: "Project Three",
+    slug: "injurfree-basketball",
+    title: "InjurFree: Biomechanical Injury Prevention for Basketball Athletes",
     year: "2026",
-    blurb: "A short one-line description of what this project is and why it matters.",
+    blurb: "Developed a functional prototype",
     description:
       "A longer paragraph for the full projects page. Explain the problem you " +
       "solved, what you built, and the outcome.",
@@ -49,14 +48,14 @@ const PROJECTS = [
     image: ""
   },
   {
-    slug: "project-four",
-    title: "Project Four",
-    year: "2026",
-    blurb: "A short one-line description of what this project is and why it matters.",
+    slug: "tegaderm-redesign",
+    title: "Skin-Sensitive Tegaderm Redesign",
+    year: "2025",
+    blurb: "Semester-long design and prototyping project to improve the Tegaderm (clear wound dressing) to be more accessible for patients with sensitive skin/eczema",
     description:
       "A longer paragraph for the full projects page. Explain the problem you " +
       "solved, what you built, and the outcome.",
-    tags: ["Swift", "Core Data"],
+    //tags: ["Figma", "Prototyping"],//
     link: "https://github.com/yourhandle/project-four",
     linkLabel: "View on GitHub",
     image: ""
