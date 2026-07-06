@@ -20,7 +20,7 @@ const PROJECTS = [
     tags: ["Scanpy", "Numpy", "Scipy", "Matplotlib", "Seaborn"],
     link: "https://github.com/wnguyen36/seaad-microglia-analysis",
     linkLabel: "View on GitHub",
-    image: "assets/seaad_analysis_pic.png" 
+    images: ["assets/seaad1.png", "assets/seaad2.png", "assets/seaad3.png", "assets/seaad4.png", "assets/seaad5.png", "assets/seaad6.png", "assets/seaad7.png", "assets/seaad8.png"]
   },
   {
     slug: "iv-failure-mode-detection",
@@ -32,7 +32,8 @@ const PROJECTS = [
     tags: ["C++", "Arduino", "React"],
     link: "https://github.com/wnguyen36/IIIV",
     linkLabel: "View on GitHub",
-    image: "assets/iiiv_demo_pic.png"
+    images: ["assets/iiiv_demo_pic.png"],
+    imageContain: true
   },
   {
     slug: "injurfree-basketball",
@@ -63,6 +64,96 @@ const PROJECTS = [
     image: ""
   }
 ];
+
+// Normalises a project's image data to a flat array of URLs.
+// Supports both `image: "single.png"` and `images: ["a.png", "b.png"]`.
+function getImages(p) {
+  if (Array.isArray(p.images) && p.images.length) return p.images.filter(Boolean);
+  if (p.image && p.image.trim()) return [p.image.trim()];
+  return [];
+}
+
+// Lazily creates a singleton lightbox overlay on the document body.
+function getLightbox() {
+  let lb = document.getElementById("_carousel_lightbox");
+  if (lb) return lb;
+
+  lb = document.createElement("div");
+  lb.id = "_carousel_lightbox";
+  lb.className = "lightbox";
+  lb.setAttribute("role", "dialog");
+  lb.setAttribute("aria-modal", "true");
+  lb.hidden = true;
+  lb.innerHTML = `
+    <button class="lightbox__close" aria-label="Close image">&#215;</button>
+    <img class="lightbox__img" src="" alt="" />
+  `;
+
+  function close() {
+    lb.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  lb.querySelector(".lightbox__close").addEventListener("click", close);
+  lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !lb.hidden) close(); });
+
+  document.body.appendChild(lb);
+  return lb;
+}
+
+// Builds a carousel DOM element for the given image list.
+// Pass contain=true to use object-fit:contain (shows full image, no cropping).
+// Returns null when images is empty.
+function buildCarousel(images, altText, { contain = false } = {}) {
+  if (!images || images.length === 0) return null;
+
+  const el = document.createElement("div");
+  el.className = contain ? "carousel carousel--contain" : "carousel";
+
+  el.innerHTML = `
+    <img class="carousel__img" src="${images[0]}" alt="${altText}" />
+    ${images.length > 1 ? `
+      <button class="carousel__btn carousel__btn--prev" aria-label="Previous image">&#8249;</button>
+      <button class="carousel__btn carousel__btn--next" aria-label="Next image">&#8250;</button>
+      <span class="carousel__counter">1 / ${images.length}</span>
+    ` : ""}
+  `;
+
+  const img = el.querySelector(".carousel__img");
+
+  img.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const lb = getLightbox();
+    lb.querySelector(".lightbox__img").src = img.src;
+    lb.querySelector(".lightbox__img").alt = img.alt;
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+    lb.querySelector(".lightbox__close").focus();
+  });
+
+  if (images.length > 1) {
+    let current = 0;
+    const counter = el.querySelector(".carousel__counter");
+
+    function go(delta) {
+      current = (current + delta + images.length) % images.length;
+      img.src = images[current];
+      img.alt = `${altText} — image ${current + 1} of ${images.length}`;
+      counter.textContent = `${current + 1} / ${images.length}`;
+
+      const cls = delta > 0 ? "carousel__img--in-right" : "carousel__img--in-left";
+      img.classList.remove("carousel__img--in-right", "carousel__img--in-left");
+      void img.offsetWidth; // force reflow to restart animation
+      img.classList.add(cls);
+    }
+
+    el.querySelector(".carousel__btn--prev").addEventListener("click", (e) => { e.stopPropagation(); go(-1); });
+    el.querySelector(".carousel__btn--next").addEventListener("click", (e) => { e.stopPropagation(); go(1); });
+  }
+
+  return el;
+}
 
 // Wires up a project card so clicking (or pressing Enter/Space) navigates
 // to that project's dedicated page. Clicks on the card's own external

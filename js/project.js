@@ -19,11 +19,7 @@ if (!project) {
 } else {
   document.title = `${project.title} — William Nguyen`;
 
-  const img = project.image
-    ? `<div class="project-page__hero" data-reveal data-reveal-manual>
-         <img class="project-page__img" src="${project.image}" alt="${project.title}" />
-       </div>`
-    : "";
+  const images = getImages(project);
 
   const tags = (project.tags || []).map((t) => `<span>${t}</span>`).join("");
 
@@ -46,13 +42,19 @@ if (!project) {
       </div>
       <a href="projects.html" class="btn">← Back to projects</a>
     </div>
-    ${img}
+    ${images.length ? `<div class="project-page__hero" data-reveal data-reveal-manual id="_hero_slot"></div>` : ""}
     <div class="project-page__body" data-reveal data-reveal-manual>
       ${paragraphs}
       <div class="project-card__tags">${tags}</div>
       ${link}
     </div>
   `;
+
+  if (images.length) {
+    const heroEl = content.querySelector("#_hero_slot");
+    heroEl.removeAttribute("id");
+    heroEl.appendChild(buildCarousel(images, project.title, { contain: !!project.imageContain }));
+  }
 }
 
 Reveal.staggerChildren(content);
