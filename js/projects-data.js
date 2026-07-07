@@ -14,51 +14,48 @@ const PROJECTS = [
     slug: "seaad-transcriptomics",
     title: "SEA-AD Single-Cell Transcriptomics Analysis",
     year: "2026",
-    blurb: "A scRNA-seq analysis of 240k microglia that quantifies how they shift into disease-associated activation states across Alzheimer's severity and genetic risk",
+    //blurb: "A scRNA-seq analysis of 240k microglia that quantifies how they shift into disease-associated activation states across Alzheimer's severity and genetic risk",
     
     
     description:
-      "Created a complete single-cell RNA-seq pipeline to 240,651 microglial transcriptomes from 84 post-mortem donors, quantifying how microglia (brain immune cells) shift between homeostatic and disease-associated programs (DAM) across Alzheimer's disease. Using curated DAM and homeostatic gene signatures across 8 annotated cell supertypes, linking DAM activation to dementia status (Spearman ρ = 0.252, p = 0.021), recovering the canonical transition signature with APOE/SPP1 upregulation and P2RY12/CX3CR1 downregulation. Performed a donor-level pseudobulk differential expression analysis on raw UMI counts, identifying 46 upregulated and 23 downregulated genes.",
+      "Created a complete single-cell RNA-seq pipeline to 240,651 microglial transcriptomes from 84 post-mortem donors, quantifying how microglia (brain immune cells) shift between homeostatic and disease-associated programs (DAM) across Alzheimer's disease. Using curated DAM and homeostatic gene signatures across 8 annotated cell supertypes, linking DAM activation to dementia status (Spearman rho = 0.252, p = 0.021), recovering the canonical transition signature with APOE/SPP1 upregulation and P2RY12/CX3CR1 downregulation. Performed a donor-level pseudobulk differential expression analysis on raw UMI counts, identifying 46 upregulated and 23 downregulated genes.",
     
 
-      tags: ["Scanpy", "AnnData", "Numpy", "Scipy", "pandas", "Matplotlib", "Seaborn", "Python"],
+      tags: ["Scanpy", "AnnData", "Numpy", "Scipy", "pandas", "Matplotlib", "Seaborn"],
     link: "https://github.com/wnguyen36/seaad-microglia-analysis",
     linkLabel: "View on GitHub",
-    //images: ["assets/seaad1.png", "assets/seaad2.png", "assets/seaad3.png", "assets/seaad4.png", "assets/seaad5.png", "assets/seaad6.png", "assets/seaad7.png", "assets/seaad8.png"]//
+    images: ["assets/seaad1.png", "assets/seaad2.png", "assets/seaad3.png", "assets/seaad4.png", "assets/seaad5.png", "assets/seaad6.png", "assets/seaad7.png", "assets/seaad8.png"]//
   },
   {
     slug: "iv-failure-mode-detection",
     title: "Multisensor IV Failure-Mode Detection & Monitoring System",
     year: "2026",
-    blurb: "Developed a low-cost, multi-sensor attachment for gravity-based IV systems that detects and classifies three failure modes",
+    //blurb: "Designed and prototyped a low-cost, multi-sensor attachment for gravity-based IV systems that detects and classifies three failure modes",
 
 
     description:
-      "Built a low-cost, multisensor attachment (SL067, photoresistor) for gravity-based IV systems that detects and classifies three modes: occlusion, leakage, and normal flow. 
+      "Built a $20 multisensor attachment (SL067, photoresistor) for gravity-based IV systems that detects and classifies three modes: occlusion, leakage, and normal flow. Used C++-implemented hysteresis denoising, EMA filtering, and stability gating to resolve failure modes. Created a prototype dashboard in React that centralizes all IV-bag states across the entire ward. Built as part of the MedTech Hackathon 2026 and won second place on the clinical track.",
 
 
     tags: ["C++", "Arduino", "React"],
     link: "https://github.com/wnguyen36/IIIV",
     linkLabel: "View on GitHub",
-    //images: ["assets/iiiv_demo_pic.png"],//
-    imageContain: true
+    //images: ["assets/iiiv_demo_pic.png"],
+    //imageContain: true
   },
   {
     slug: "injurfree-basketball",
     title: "InjurFree: Biomechanical Injury Prevention for Basketball Athletes",
     year: "2026",
-    blurb: "Developed a functional prototype of a web application that analyzes basketball clips to detect injury-prone movements and provide feedback to athletes and coaches",
+    //blurb: "Developed a functional prototype of a web application that analyzes basketball clips to detect injury-prone movements and provide feedback to athletes and coaches",
 
 
     description:
-      "A longer paragraph for the full projects page. Explain the problem you " +
-      "solved, what you built, and the outcome.",
+      "Developed a web applicaiton that processes basketball clips frame-by-frame for any injury-prone poses/movements; labels each timeframe with details on why it can be dangerous, and compiles an overall risk score for users. Used OpenCV and MediaPipe for computer vision analysis, SQLAlchemy and PostgreSQL for database management, and PyTorch for a machine learning framework. Built for SproutGT Hackathon 2026.",
 
 
-    //tags: ["", ""],//
-    link: "https://github.com/jaydendayal/injurfree",
-    linkLabel: "View on GitHub",
-    link: "https://devpost.com/software/injure-free", 
+    tags: ["OpenCV", "MediaPipe", "SQLAlchemy", "PostgreSQL", "Numpy", "PyTorch", "Next.js", "TypeScript", "React"],
+    link: "https://devpost.com/software/injure-free",
     linkLabel: "View our Devpost",
     //image: " "//
   },
@@ -66,12 +63,11 @@ const PROJECTS = [
     slug: "tegaderm-redesign",
     title: "Skin-Sensitive Tegaderm Redesign",
     year: "2025",
-    blurb: "Semester-long design and prototyping project to improve the Tegaderm (clear wound dressing) to be more accessible for patients with sensitive skin/eczema",
+    //blurb: "Semester-long design and prototyping project to improve the Tegaderm (clear wound dressing) to be more accessible for patients with sensitive skin/eczema",
    
    
     description:
-      "A longer paragraph for the full projects page. Explain the problem you " +
-      "solved, what you built, and the outcome.",
+      "Semester-long design and prototyping project to improve the Tegaderm (clear wound dressing) to be more accessible for patients with sensitive skin/eczema. Iterated through 10 different designs, settling on a silicone-based adhesive alternative. Tested a prototype of this adhesive against Tegaderm's, supporting that it is more gentle and thus more suitable for patients with sensitive skin.",
     //tags: ["Figma", "Prototyping"],//
     //link: "",//
 

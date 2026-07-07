@@ -20,7 +20,6 @@ function buildFullCard(p) {
       <h3 class="project-card__title">${p.title}</h3>
       <span class="project-card__year">${p.year}</span>
     </div>
-    <p class="project-card__desc">${p.blurb}</p>
     <div class="project-card__tags">${tags}</div>
     ${link}
   `;
