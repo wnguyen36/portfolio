@@ -27,6 +27,9 @@ function buildFullCard(p) {
   const carousel = buildCarousel(getImages(p), p.title, { contain: !!p.imageContain });
   if (carousel) card.insertBefore(carousel, card.firstChild);
 
+  const video = buildVideo(p.video);
+  if (video) card.insertBefore(video, card.firstChild);
+
   goToProjectPage(card, p);
 
   return card;

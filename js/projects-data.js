@@ -40,8 +40,7 @@ const PROJECTS = [
     tags: ["C++", "Arduino", "React"],
     link: "https://github.com/wnguyen36/IIIV",
     linkLabel: "View on GitHub",
-    //images: ["assets/iiiv_demo_pic.png"],
-    //imageContain: true
+    video: "assets/IIIV.mp4"
   },
   {
     slug: "injurfree-basketball",
@@ -164,6 +163,19 @@ function buildCarousel(images, altText, { contain = false } = {}) {
     el.querySelector(".carousel__btn--next").addEventListener("click", (e) => { e.stopPropagation(); go(1); });
   }
 
+  return el;
+}
+
+// Builds a <video> element for a project that has a video field.
+function buildVideo(src) {
+  if (!src) return null;
+  const el = document.createElement("video");
+  el.src = src;
+  el.controls = true;
+  el.muted = true;
+  el.loop = true;
+  el.playsInline = true;
+  el.className = "project-video";
   return el;
 }
 

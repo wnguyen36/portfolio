@@ -20,6 +20,7 @@ if (!project) {
   document.title = `${project.title} — William Nguyen`;
 
   const images = getImages(project);
+  const hasMedia = images.length || project.video;
 
   const tags = (project.tags || []).map((t) => `<span>${t}</span>`).join("");
 
@@ -42,7 +43,7 @@ if (!project) {
       </div>
       <a href="projects.html" class="btn">← Back to projects</a>
     </div>
-    ${images.length ? `<div class="project-page__hero" data-reveal data-reveal-manual id="_hero_slot"></div>` : ""}
+    ${hasMedia ? `<div class="project-page__hero" data-reveal data-reveal-manual id="_hero_slot"></div>` : ""}
     <div class="project-page__body" data-reveal data-reveal-manual>
       ${paragraphs}
       <div class="project-card__tags">${tags}</div>
@@ -50,10 +51,14 @@ if (!project) {
     </div>
   `;
 
-  if (images.length) {
+  if (hasMedia) {
     const heroEl = content.querySelector("#_hero_slot");
     heroEl.removeAttribute("id");
-    heroEl.appendChild(buildCarousel(images, project.title, { contain: !!project.imageContain }));
+    if (images.length) {
+      heroEl.appendChild(buildCarousel(images, project.title, { contain: !!project.imageContain }));
+    }
+    const video = buildVideo(project.video);
+    if (video) heroEl.appendChild(video);
   }
 }
 
