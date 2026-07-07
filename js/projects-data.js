@@ -15,53 +15,69 @@ const PROJECTS = [
     title: "SEA-AD Single-Cell Transcriptomics Analysis",
     year: "2026",
     blurb: "A scRNA-seq analysis of 240k microglia that quantifies how they shift into disease-associated activation states across Alzheimer's severity and genetic risk",
+    
+    
     description:
-      "This project applies a complete single-cell RNA-seq pipeline to 240,651 microglial transcriptomes from 84 post-mortem donors, quantifying how microglia (brain immune cells) shift between homeostatic and disease-associated programs (DAM) across Alzheimer's disease. Using curated DAM and homeostatic gene signatures across 8 annotated cell supertypes, the analysis links DAM activation to dementia status (Spearman ρ = 0.252, p = 0.021), recovering the canonical transition signature with APOE/SPP1 upregulation and P2RY12/CX3CR1 downregulation. A donor-level pseudobulk differential expression analysis on raw UMI counts identified 46 upregulated and 23 downregulated genes.",
-    tags: ["Scanpy", "Numpy", "Scipy", "Matplotlib", "Seaborn"],
+      "Created a complete single-cell RNA-seq pipeline to 240,651 microglial transcriptomes from 84 post-mortem donors, quantifying how microglia (brain immune cells) shift between homeostatic and disease-associated programs (DAM) across Alzheimer's disease. Using curated DAM and homeostatic gene signatures across 8 annotated cell supertypes, linking DAM activation to dementia status (Spearman ρ = 0.252, p = 0.021), recovering the canonical transition signature with APOE/SPP1 upregulation and P2RY12/CX3CR1 downregulation. Performed a donor-level pseudobulk differential expression analysis on raw UMI counts, identifying 46 upregulated and 23 downregulated genes.",
+    
+
+      tags: ["Scanpy", "AnnData", "Numpy", "Scipy", "pandas", "Matplotlib", "Seaborn", "Python"],
     link: "https://github.com/wnguyen36/seaad-microglia-analysis",
     linkLabel: "View on GitHub",
-    images: ["assets/seaad1.png", "assets/seaad2.png", "assets/seaad3.png", "assets/seaad4.png", "assets/seaad5.png", "assets/seaad6.png", "assets/seaad7.png", "assets/seaad8.png"]
+    //images: ["assets/seaad1.png", "assets/seaad2.png", "assets/seaad3.png", "assets/seaad4.png", "assets/seaad5.png", "assets/seaad6.png", "assets/seaad7.png", "assets/seaad8.png"]//
   },
   {
     slug: "iv-failure-mode-detection",
     title: "Multisensor IV Failure-Mode Detection & Monitoring System",
     year: "2026",
     blurb: "Developed a low-cost, multi-sensor attachment for gravity-based IV systems that detects and classifies three failure modes",
+
+
     description:
-      "A longer paragraph for the full projects page. Explain the problem you ",
+      "Built a low-cost, multisensor attachment (SL067, photoresistor) for gravity-based IV systems that detects and classifies three modes: occlusion, leakage, and normal flow. 
+
+
     tags: ["C++", "Arduino", "React"],
     link: "https://github.com/wnguyen36/IIIV",
     linkLabel: "View on GitHub",
-    images: ["assets/iiiv_demo_pic.png"],
+    //images: ["assets/iiiv_demo_pic.png"],//
     imageContain: true
   },
   {
     slug: "injurfree-basketball",
     title: "InjurFree: Biomechanical Injury Prevention for Basketball Athletes",
     year: "2026",
-    blurb: "Developed a functional prototype",
+    blurb: "Developed a functional prototype of a web application that analyzes basketball clips to detect injury-prone movements and provide feedback to athletes and coaches",
+
+
     description:
       "A longer paragraph for the full projects page. Explain the problem you " +
       "solved, what you built, and the outcome.",
+
+
     //tags: ["", ""],//
     link: "https://github.com/jaydendayal/injurfree",
     linkLabel: "View on GitHub",
     link: "https://devpost.com/software/injure-free", 
     linkLabel: "View our Devpost",
-    image: " "
+    //image: " "//
   },
   {
     slug: "tegaderm-redesign",
     title: "Skin-Sensitive Tegaderm Redesign",
     year: "2025",
     blurb: "Semester-long design and prototyping project to improve the Tegaderm (clear wound dressing) to be more accessible for patients with sensitive skin/eczema",
+   
+   
     description:
       "A longer paragraph for the full projects page. Explain the problem you " +
       "solved, what you built, and the outcome.",
     //tags: ["Figma", "Prototyping"],//
     //link: "",//
+
+
     linkLabel: "View the design report",
-    image: ""
+    //image: ""//
   }
 ];
 
