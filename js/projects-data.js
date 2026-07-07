@@ -68,12 +68,12 @@ const PROJECTS = [
    
     description:
       "Semester-long design and prototyping project to improve the Tegaderm (clear wound dressing) to be more accessible for patients with sensitive skin/eczema. Iterated through 10 different designs, settling on a silicone-based adhesive alternative. Tested a prototype of this adhesive against Tegaderm's, supporting that it is more gentle and thus more suitable for patients with sensitive skin.",
-    //tags: ["Figma", "Prototyping"],//
-    //link: "",//
+    tags: ["Medical Device Design", "Prototyping"],
+    link: "assets/tegaderm1.pdf",
 
 
     linkLabel: "View the design report",
-    //image: ""//
+    image: "assets/tegaderm2.png"
   }
 ];
 
