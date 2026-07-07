@@ -56,7 +56,7 @@ const PROJECTS = [
     tags: ["OpenCV", "MediaPipe", "SQLAlchemy", "PostgreSQL", "Numpy", "PyTorch", "Next.js", "TypeScript", "React"],
     link: "https://devpost.com/software/injure-free",
     linkLabel: "View our Devpost",
-    //image: " "//
+    image: "assets/injurfree1.png"
   },
   {
     slug: "tegaderm-redesign",
