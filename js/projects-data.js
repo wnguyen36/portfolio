@@ -12,19 +12,19 @@
 const PROJECTS = [
   {
     slug: "seaad-transcriptomics",
-    title: "SEA-AD Single-Cell Transcriptomics Analysis",
+    title: "SEA-AD Single-Nucleus Transcriptomics Analysis of Microglia",
     year: "2026",
     //blurb: "A scRNA-seq analysis of 240k microglia that quantifies how they shift into disease-associated activation states across Alzheimer's severity and genetic risk",
     
     
     description:
-      "Created a complete single-cell RNA-seq pipeline to 240,651 microglial transcriptomes from 84 post-mortem donors, quantifying how microglia (brain immune cells) shift between homeostatic and disease-associated programs (DAM) across Alzheimer's disease. Using curated DAM and homeostatic gene signatures across 8 annotated cell supertypes, linking DAM activation to dementia status (Spearman rho = 0.252, p = 0.021), recovering the canonical transition signature with APOE/SPP1 upregulation and P2RY12/CX3CR1 downregulation. Performed a donor-level pseudobulk differential expression analysis on raw UMI counts, identifying 46 upregulated and 23 downregulated genes.",
+      "Microglia are the brain's resident immune cells. In Alzheimer's disease (AD) they shift out of their normal surveillance state into an activated one. Keren-Shaul et al. (2017) described this in mice and called the activated cells disease-associated microglia (DAM). They showed the change happens in two steps: a first step that does not need the TREM2 gene, and a second that does. That signature was defined in mouse cells. This project explores whether it holds up in human brain tissue. The data comes from the Seattle Alzheimer's Disease Brain Cell Atlas (SEA-AD), which profiled single nuclei from 84 donors spanning the full range of AD pathology (no disease to severe). Working from this, I scored each microglial nucleus against the mouse DAM and homeostatic gene lists, averaged those scores per donor, and tested them against the donors' neuropathology and cognitive records. What I found out was that the mouse signature transfers only partially.",
     
 
       tags: ["Scanpy", "AnnData", "Numpy", "Scipy", "pandas", "Matplotlib", "Seaborn"],
     link: "https://github.com/wnguyen36/seaad-microglia-analysis",
     linkLabel: "View on GitHub",
-    images: ["assets/seaad1.png", "assets/seaad2.png", "assets/seaad3.png", "assets/seaad4.png", "assets/seaad5.png", "assets/seaad6.png", "assets/seaad7.png", "assets/seaad8.png"]//
+    images: ["assets/seaad1.png","assets/seaad2.png","assets/seaad3.png"]//
   },
   {
     slug: "iv-failure-mode-detection",
